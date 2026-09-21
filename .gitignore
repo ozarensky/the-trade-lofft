@@ -1,0 +1,5 @@
+# Private files that must not go in the public repo
+_archive/
+.claude/
+*.zip
+*.docx

@@ -1,0 +1,48 @@
+/* The Trade Loft — site stylesheet.
+   Layout styles live inline in index.html (exported design); this file holds
+   fonts, base rules, responsive overrides and interactive states. */
+
+@font-face{font-family:'Big Shoulders Display';src:url("../fonts/bigshoulders-var.woff2") format('woff2');font-weight:600 800;font-display:swap}
+@font-face{font-family:'Inter';src:url("../fonts/inter-var.woff2") format('woff2');font-weight:400 700;font-display:swap}
+
+html{scroll-behavior:smooth;background:#0B0B0A}
+body{margin:0;background:#F1E7D0;color:#0B0B0A;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased}
+a{color:#0B0B0A;text-decoration:none}
+a:hover{color:#B8864F}
+[id]{scroll-margin-top:101px}
+[hidden]{display:none !important}
+body{-webkit-user-select:none;user-select:none}
+img{-webkit-user-drag:none;user-drag:none;pointer-events:none}
+input,textarea{-webkit-user-select:text;user-select:text}
+body.modal-open{overflow:hidden}
+:focus-visible{outline:2px solid #C49A45;outline-offset:2px}
+
+/* Interactive states. Base styles are inline, so these need !important. */
+.hv-cream:hover{background:#F1E7D0 !important;color:#0B0B0A !important;transform:translateY(-1px)}
+.hv-gold:hover{background:#C49A45 !important;color:#0B0B0A !important;transform:translateY(-1px)}
+.hv-gold-flat:hover{background:#C49A45 !important;color:#0B0B0A !important}
+.hv-black:hover{background:#0B0B0A !important;color:#F1E7D0 !important}
+.hv-gold-text:hover{color:#C49A45 !important}
+.field:focus{border-color:#0B0B0A !important}
+#enquiry-send[disabled]{opacity:.7;cursor:default}
+
+@media (max-width:760px){
+  [data-mob="stack"]{grid-template-columns:minmax(0,1fr) !important}
+  [data-mob="stack-tight"]{grid-template-columns:minmax(0,1fr) !important;gap:8px !important}
+  [data-mob="img"]{order:2 !important}
+  [data-mob="text"]{order:1 !important}
+  [data-mob="navlinks"],[data-mob="navcta"]{display:none !important}
+  [data-mob="burger"]{display:inline-flex !important}
+  [data-mob="badge"]{width:150px !important}
+  [data-mob="footlinks"]{gap:28px !important}
+  #donate > div:last-child{border-left:0 !important;border-top:1px solid #0B0B0A;min-height:240px !important}
+  #top h1{font-size:clamp(48px,15vw,72px) !important}
+  #top h2{font-size:clamp(34px,9.5vw,44px) !important}
+  #top h3{font-size:clamp(22px,6vw,27px) !important}
+  #top span[style*="font-size:48px"]{font-size:32px !important}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  img[data-parallax]{transform:none !important}
+}
