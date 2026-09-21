@@ -7,7 +7,7 @@
   // and the form opens the visitor's email app with everything filled in.
   var ENDPOINT = '';
   var TO = 'info@thetradeloft.co.uk';
-  var PHONE = '07566 225606';
+  var PHONE = '01249 599087';
 
   var KINDS = {
     partnership: { title: 'Enquire about a partnership', intro: 'Tell us what you’re holding and how often. We reply within two working days.', org: 'Company or charity', ph: 'What stock, roughly how much, how often, and where.', subject: 'Partnership enquiry' },
