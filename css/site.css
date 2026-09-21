@@ -23,6 +23,11 @@ body.modal-open{overflow:hidden}
 .hv-gold-flat:hover{background:#C49A45 !important;color:#0B0B0A !important}
 .hv-black:hover{background:#0B0B0A !important;color:#F1E7D0 !important}
 .hv-gold-text:hover{color:#C49A45 !important}
+/* primary nav links: gold on hover with an underline that slides in from the left */
+.navlink{transition:color .18s}
+.navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#C49A45;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
+.navlink:hover,.navlink:focus-visible{color:#C49A45 !important}
+.navlink:hover::after,.navlink:focus-visible::after{transform:scaleX(1)}
 .field:focus{border-color:#0B0B0A !important}
 #enquiry-send[disabled]{opacity:.7;cursor:default}
 
