@@ -23,6 +23,7 @@ body.modal-open{overflow:hidden}
 .hv-gold-flat:hover{background:#C49A45 !important;color:#0B0B0A !important}
 .hv-black:hover{background:#0B0B0A !important;color:#F1E7D0 !important}
 .hv-gold-text:hover{color:#C49A45 !important}
+.hv-outline-gold:hover{border-color:#C49A45 !important;color:#C49A45 !important}
 /* primary nav links: gold on hover with an underline that slides in from the left */
 .navlink{transition:color .18s}
 .navlink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#C49A45;transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
@@ -31,7 +32,16 @@ body.modal-open{overflow:hidden}
 .field:focus{border-color:#0B0B0A !important}
 #enquiry-send[disabled]{opacity:.7;cursor:default}
 
+/* calls to action that only appear on small screens */
+[data-mobcta]{display:none}
+[data-mobbar]{display:none}
+body.modal-open [data-mobbar]{display:none !important}
+
 @media (max-width:760px){
+  [data-mobcta]{display:flex !important}
+  [data-mobbar]{display:flex !important}
+  /* keep the sticky bar clear of the footer's last line */
+  footer{padding-bottom:calc(96px + env(safe-area-inset-bottom)) !important}
   [data-mob="stack"]{grid-template-columns:minmax(0,1fr) !important}
   [data-mob="stack-tight"]{grid-template-columns:minmax(0,1fr) !important;gap:8px !important}
   [data-mob="img"]{order:2 !important}
@@ -39,12 +49,19 @@ body.modal-open{overflow:hidden}
   [data-mob="navlinks"],[data-mob="navcta"]{display:none !important}
   [data-mob="burger"]{display:inline-flex !important}
   [data-mob="badge"]{width:150px !important}
+  [data-mob="hero"]{padding-bottom:calc(112px + env(safe-area-inset-bottom)) !important}
   [data-mob="footlinks"]{gap:28px !important}
   #donate > div:last-child{border-left:0 !important;border-top:1px solid #0B0B0A;min-height:240px !important}
   #top h1{font-size:clamp(48px,15vw,72px) !important}
   #top h2{font-size:clamp(34px,9.5vw,44px) !important}
   #top h3{font-size:clamp(22px,6vw,27px) !important}
   #top span[style*="font-size:48px"]{font-size:32px !important}
+}
+
+/* very narrow phones: the sticky bar drops to icons so Enquire keeps its label */
+@media (max-width:374px){
+  [data-mobbar] .barlabel{display:none}
+  [data-mobbar] a[data-baricon]{flex:0 0 58px}
 }
 
 @media (prefers-reduced-motion:reduce){
